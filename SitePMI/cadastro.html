@@ -6,6 +6,78 @@
     <link rel="stylesheet" href="css/master.css">
   </head>
   <body>
+    <script type="text/javascript" src="JavaScript/cataCEP.json"></script>
+    <script type="text/javascript">
+      function Cadastrar() {
+        let nome = document.getElementById('nome');
+        let email = document.getElementById('email');
+        let email2 = document.getElementById('email2');
+        let senha = document.getElementById('senha');
+        let senha2 = document.getElementById('senha2');
+        let cep = document.getElementById('cep');
+        let rua = document.getElementById('rua');
+        let bairro = document.getElementById('bairro');
+        let cidade = document.getElementById('cidade');
+        let uf = document.getElementById('uf');
+
+        fetch('data.json')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            appendData(data);
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+
+        if (nome.value == "") {
+          VerificarDado(nome);
+        } else if (email.value == ""){
+          VerificarDado(email);
+        } else if (email.value.indexOf(".") === -1){
+          alert("O email deve conter um ponto ( . )");
+        } else if (email.value.indexOf("@") === -1){
+          alert("O email deve conter um arroba ( @ )");
+        } else if (email.value != email2.value){
+          alert("Os emails devem estar iguais");
+        } else if (email2.value == ""){
+          VerificarDado(email2);
+        } else if (senha.value == ""){
+          VerificarDado(senha);
+        } else if (senha.value != senha2.value){
+          alert("As senhas devem estar iguais");
+        } else if (cep.value == ""){
+          VerificarDado(cep);
+        } else if (rua.value == ""){
+          VerificarDado(rua);
+        } else if (bairro.value == ""){
+          VerificarDado(bairro);
+        } else if (cidade.value == ""){
+          VerificarDado(cidade);
+        } else if (uf.value == ""){
+          VerificarDado(uf);
+        }
+      }
+
+      function VerificarDado(caixa) {
+        if(caixa.value == ""){
+          caixa.style.borderColor = "red";
+          caixa.style.backgroundColor = "pink";
+          caixa.placeholder = "Não deixe esta caixa vazia";
+        } else {
+          caixa.style.borderColor = "blue";
+          caixa.style.backgroundColor = "lightblue";
+          caixa.placeholder = "";
+        }
+
+        function VerificarCEP() {
+          let dados = JSON.parse(data);
+          alert(dados.length);
+        }
+      }
+    </script>
+    <div style="display: none;" id="dados"></div>
     <header>
       Site super bacana
     </header>
@@ -28,50 +100,51 @@
           <table>
             <tr>
               <td><label for="nome">Nome: </label></td>
-              <td><input type="text" name="nome"></td>
+              <td><input type="text" name="nome" id="nome" onfocusout="VerificarDado(this)"></td>
             </tr>
             <tr>
               <td><label for="email">Email: </label></td>
-              <td><input type="email" name="email"></td>
+              <td><input type="email" name="email" id="email" onfocusout="VerificarDado(this)"></td>
             </tr>
             <tr>
               <td><label for="email2">Confirmar email: </label></td>
-              <td><input type="email" name="email2"></td>
+              <td><input type="email" name="email2" id="email2" onfocusout="VerificarDado(this)"></td>
             </tr>
             <tr>
               <td><label for="senha">Senha: </label></td>
-              <td><input type="password" name="senha"></td>
+              <td><input type="password" name="senha" id="senha" onfocusout="VerificarDado(this)"></td>
             </tr>
             <tr>
               <td><label for="senha2">Confirmar senha: </label></td>
-              <td><input type="password" name="senha2"></td>
+              <td><input type="password" name="senha2" id="senha2" onfocusout="VerificarDado(this)"></td>
             </tr>
           </table>
         </fieldset>
         <fieldset>
           <table>
             <tr>
-              <td><label for="CEP">CEP: </label></td>
-              <td><input type="text" name="CEP"></td>
+              <td><label for="cep">CEP: </label></td>
+              <td><input type="text" name="cep" id="cep" onfocusout="VerificarDado(this)" oninput="VerificarCEP()"></td>
             </tr>
             <tr>
               <td><label for="rua">Rua: </label></td>
-              <td><input type="text" name="rua"></td>
+              <td><input type="text" name="rua" id="rua" onfocusout="VerificarDado(this)"></td>
             </tr>
               <tr>
               <td><label for="bairro">Bairro: </label></td>
-              <td><input type="text" name="bairro"></td>
+              <td><input type="text" name="bairro" id="bairro" onfocusout="VerificarDado(this)"></td>
             </tr>
               <tr>
               <td><label for="cidade">Cidade: </label></td>
-              <td><input type="text" name="cidade"></td>
+              <td><input type="text" name="cidade" id="cidade" onfocusout="VerificarDado(this)"></td>
             </tr>
               <tr>
-              <td><label for="UF">Estado: </label></td>
-              <td><input type="text" name="UF"></td>
+              <td><label for="uf">Estado: </label></td>
+              <td><input type="text" name="uf" id="uf" onfocusout="VerificarDado(this)"></td>
             </tr>
           </table>
         </fieldset>
+        <input type="button" id="enviar" onclick="Cadastrar()" value="Enviar">
       </form>
     </section>
     <footer>
