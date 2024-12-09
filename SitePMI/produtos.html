@@ -5,19 +5,60 @@
     <title>Página Inicial</title>
     <link rel="stylesheet" href="css/master.css">
   </head>
-  <body>
-    <header>
-      Site super bacana
+  <body onload="MostrarProdutos()">
+    <script type="text/javascript">
+    function MostrarProdutos() {
+        let produtos = 30;
+        for (var i = 0; i < produtos; i++) {
+          let nomeP = document.createElement('h5');
+          nomeP.classList.add("nomeP");
+
+          let imgP = document.createElement('img');
+          imgP.classList.add("imgP");
+
+          let descP = document.createElement('p');
+          descP.classList.add("descP");
+
+          let precoP = document.createElement('p');
+          precoP.classList.add("precoP");
+
+          if(i % 3 == 0){
+            nomeP.innerHTML = "Blusa Off White Tam G";
+            imgP.src = "res/roupa1.jpg";
+            descP.innerHTML = "Blusa branca usada";
+            precoP.innerHTML = "R$50,00";
+          } else if(i % 3 == 1){
+            nomeP.innerHTML = "Blusa mixed verde";
+            imgP.src = "res/roupa2.jpg";
+            descP.innerHTML = "Blusa verde usada";
+            precoP.innerHTML = "R$30,00";
+          } else {
+            nomeP.innerHTML = "Blusa modal rosa e vermelha";
+            imgP.src = "res/roupa3.jpg";
+            descP.innerHTML = "Blusa Manga Curta Tricô Estampa Geométrica Retrô";
+            precoP.innerHTML = "R$45,00";
+          }
+
+          let produto = document.createElement('div');
+          produto.classList.add("produto");
+          produto.append(nomeP);
+          produto.append(imgP);
+          produto.append(descP);
+          produto.append(precoP);
+          document.getElementById("produtos").append(produto);
+        }
+    }
+    </script>
+    <header><img src="res/icone.svg" id="icone">
+      Brechó Sustentável
     </header>
     <nav>
       <ul>
-        <li><a href="index.html">Página Inicial</a></li>
-        <li><a href="sobre.html">Sobre nós</a></li>
+        <li><a href="index.html">Página&nbsp;Inicial</a></li>
+        <li><a href="sobre.html">Sobre&nbsp;nós</a></li>
         <li><a href="contato.html">Contato</a></li>
-        <li><a href="cadastro.html">Formulário de Cadastro</a></li>
+        <li><a href="cadastro.html">Formulário&nbsp;de&nbsp;Cadastro</a></li>
         <li><a href="produtos.html">Produtos</a></li>
-        <li><a href="galeria.html">Galeria</a></li>
-        <li><a href="feedback.html">Feedback de Clientes</a></li>
       </ul>
     </nav>
     <section>
@@ -25,26 +66,35 @@
       <div id="produtos">
         <div class="produto">
           <h5 class="nomeP">Blusa Off White Tam G</h5>
-          <img class="imgP" src="https://photos.enjoei.com.br/blusa-off-white-tam-m-101750995/828xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy80ODIyODE4LzJkOGRhZDRhZTU0YmZhNGM0NTNkYmYyM2Q3MTUyYTM0LmpwZw" alt="GLaDOS">
+          <img class="imgP" src="res/roupa1.jpg" alt="GLaDOS">
           <p class="descP">Blusa branca usada.</p>
           <p class="precoP">R$50,00</p>
         </div>
         <div class="produto">
           <h5 class="nomeP">Blusa mixed verde</h5>
-          <img class="imgP" src="https://images.tcdn.com.br/img/img_prod/916204/blusa_mixed_3741_1_2799948232c597e695e92a40c151e8f8.jpg" alt="GLaDOS">
+          <img class="imgP" src="res/roupa2.jpg" alt="GLaDOS">
           <p class="descP">Blusa mixed verde</p>
           <p class="precoP">R$30,00</p>
         </div>
         <div class="produto">
           <h5 class="nomeP">Blusa modal rosa e vermelha</h5>
-          <img class="imgP" src="https://http2.mlstatic.com/D_NQ_NP_776119-MLB78217679393_082024-O.webp" alt="GLaDOS">
+          <img class="imgP" src="res/roupa3.jpg" alt="GLaDOS">
           <p class="descP">Blusa Manga Curta Tricô Estampa Geométrica Retrô</p>
           <p class="precoP">R$50,00</p>
         </div>
       </div>
     </section>
     <footer>
-      Pés
+      <table>
+        <tr>
+          <td>Email:</td><td>brechosustentavel@gmail.com</td>
+          <td>| Telefone:</td><td>1234-5678</td>
+          <td>| Whatsapp:</td><td>(11) 98765-4321</td>
+          <td>| Facebook:</td><td><a href="facebook.com">Página nossa</td>
+          <td>| Instagram:</td><td><a href="instagram.com">Página nossa</td>
+          <td>| Twitter/X:</td><td><a href="x.com">Página nossa</td>
+        </tr>
+      </table>
     </footer>
   </body>
 </html>

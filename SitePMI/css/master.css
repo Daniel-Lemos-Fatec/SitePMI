@@ -1,6 +1,6 @@
 body{
   margin: 0;
-  background-color: #e7f6e7;
+  background-color: #d0f0d0;
 }
 header{
   top: 0px;
@@ -10,14 +10,21 @@ header{
   background-color: #4a7c59;
   color: white;
   position: fixed;
+  height: 24px;
+}
+#icone{
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
 }
 nav{
-  top: 20px;
+  top: 24px;
   text-align: center;
   left: 50%;
   transform: translateX(-50%);
+  padding-right: 40px;
+  border-radius: 0 0 20px 20px;
   margin: 0;
-  width: 60%;
   background-color: #4a7c59;
   color: white;
   position: fixed;
@@ -31,6 +38,10 @@ ul{
   justify-content: center;
   align-items: center;
   align-content: space-around;
+}
+li{
+
+  width: auto;
 }
 a{
   text-decoration: none;
@@ -47,9 +58,19 @@ footer{
   background-color: #4a7c59;
   color: white;
 }
+footer table{
+  margin: auto;
+}
+footer table tr td:nth-child(odd){
+  text-align: right;
+  padding-right: 3px;
+}
+footer table tr td:nth-child(even){
+  text-align: left;
+}
 section{
   margin: 5% 25%;
-  background-color: #f9f9f9;
+  background-color: #f0fff0;
   border-radius: 10px;
   padding: 0.5% 1%;
 }
@@ -58,8 +79,35 @@ h1{
   font-size: 24pt;
 }
 input{
-  border-color: blue;
-  background-color: lightblue;
+  border-color: green;
+  background-color: lightgreen;
+  border-top: none;
+  border-right: none;
+}
+#tcontato{
+  margin: auto;
+}
+#tcontato tr td{
+  width: 300px;
+}
+#tcontato tr td:nth-child(odd){
+  text-align: right;
+  padding-right: 3px;
+}
+#tcontato tr td:nth-child(even){
+  text-align: left;
+}
+#tcontato a{
+  color: black;
+}
+#tcontato a:hover{
+  color: green;
+}
+#enviar:hover{
+  transition: 0.3s;
+  background-color: green;
+  color: white;
+  cursor: pointer;
 }
 #produtos{
   display: flex;
@@ -70,10 +118,11 @@ input{
   align-content: space-around;
 }
 .produto{
-  background-color: lightblue;
+  background-color: lightgreen;
+  border-radius: 20px;
   padding: 2px;
-  width: 150px;
-  height: 250px;
+  width: 160px;
+  height: 260px;
 }
 .nomeP{
   position: relative;
@@ -84,15 +133,16 @@ input{
   height: 40px;
 }
 .imgP{
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
 }
 .descP{
     margin: 0;
     font-size: 7pt;
+    height: 26px;
+    text-align: center;
 }
 .precoP{
     text-align: center;
-    bottom: 0px;
     font-size: 8pt;
 }
